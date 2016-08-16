@@ -1,0 +1,172 @@
+
+Website proposal
+This document is subject to modifications that suit a highly responsive and interactive website to fit into our desired online business process.
+*#*Always refresh page to get updated document
+Bootstrap and html5 to design
+“* - asterisk indicates further clarification or additions”
+Demo account is the same as practice account in this document.
+Overview
+This website should permit users to sign up to our website and perform certain processes as described below.
+Build an  interface(web page) to connect to Metatrader 4 API and perform certain functions as described in detail below.
+[Payment options for the website should be styled and designed to look like the “featured agencies” div of  this site --- http://www.ownaspace.com/
+Header in home page should be designed with animated chart image in background like the one in this site --- iqoption.com/]
+This website should support  French and English languages by default.
+** When being accessed from a french speaking country, it must automatically display in french. **When being accessed from an english speaking country, it must automatically display in english
+Forms
+Live account
+Demo account
+Sign up
+Become a partner
+***
+Main Pages
+Home
+User profile/account settings
+File a complain (user sends message with the complaint form)
+Downloads (software, learning materials, policies etc… )
+Become a partner
+Members area (sign in with live account)
+User profile/account settings
+Funds
+Open account
+Display trade history
+***
+Tabs
+social media channels
+payment channels
+Home
+Products
+Community (will contain links to our blogs, forums, etc...)
+Services
+Events
+About us
+Contact us
+Become a partner
+Client testimonies
+Live chat
+Request a call back
+***
+Form intelligence
+All form fields must be required * This means user cannot submit form unless they fill in all fields *correctly*
+All fields must have validity check for the format and data type
+Email format
+Phone number
+All other fields
+Passwords must not be stored in plain text within database. It must be encrypted
+On passwords
+If user forgets their password, he or she  must be allowed to reset (password reset link)
+Password attemps for members’ area should be 4 times i.e if user enters the wrong password in members area for 4 times, they should be sent a password reset link to reset their password. They should be informed about the security relevance of this in the mail.
+Database Flow/design [Website sign up DB]
+Each user must have a unique ID on sign up.
+One sign up per email allowed.
+On sign in, each user must be allowed to perform below activities. Each user activity performed at a particular time should be logged in database.
+Edit profile or account settings
+File a complaint
+Permitted to create Demo account [one per email]
+Permitted to create live account [one per email]
+Request for callback [one per day]
+Request to meet with Gerald [one per day
+Register to attend webinar [one registration allowed per a particular schedule]
+Watch educational videos [unlimited]
+Downloads [software, learning materials, policies, etc...] Unlimited
+One affiliate account per email ** (fill affiliate account form) - P
+Database Flow/design [Demo account sign up db]
+After sign up, when user clicks “open practice account”, Practice account sign-up request  must pop up a form automatically filled with same data used for sign up. (not editable)
+When user clicks submit, Post data to the practice account server
+Each user must have a unique ID on Demo account sign up (*links to unique ID created during sign up*).
+Only one Demo account sign up per email allowed.
+Practice account form(automatically filled with sign up data) posts to metatrader 4 (our  demo server) through the API interface and perform the following.
+Creates demo account for user
+Sends a no reply email to user containing
+Username
+Password creation link to user(same as password reset link)
+Password posted from create password form must be encrypted before posting to our practice account server to be stored through the API connection
+If user forgets their demo account password send password creation link to user(same as password reset link)
+Password posted from create password form must be encrypted before posting to our practice account server to be stored through the API connection
+Database Flow/design [Live account sign up db]
+After sign up, when user clicks “open live account”, Live account sign-up request  must pop up the live account form. Automatically fill the upper fields(same as sign up form field) with same data used for sign up(not editable) and leave the lower fields editable for the user to fill in. All fields required.
+When user clicks submit, Post data to the LIVE account server
+Each user must have a unique ID on Live account sign up (*links to unique ID created during sign up*).
+Only one live account sign up per email allowed.
+Live account form posts to metatrader 4 (our  live server) through the API interface and perform the following.
+Creates live account for user
+Sends a no reply email to user containing
+Username
+Password creation link to user(same as password reset link)
+Password posted from create password form must be encrypted before posting to our live account server to be stored through the API connection
+If user forgets their live account password, send password creation link to user(same as password reset link)
+Password posted from create password form must be encrypted before posting to our live account server to be stored through the API connection
+Access to members’ area [Accessible by Live account login only]
+For live account sign-in, Click members’ area on page (An interface to the Metatrader 4 API for LIVE accounts)
+User with live account who sign into members’ area can do the below activities
+Edit profile or account settings
+Open account
+One
+Ecn
+Gfx FX Stat
+View active accounts (displayed on left pane when user sign in)
+Hover on account for a brief description
+Click on account to load account portal
+If account type is OneAccount or ECN
+Display trade/transaction history [fetched from live server via API]
+Display a link to create GFx Fx stat account (link description should promote social trading)
+If account type is GFx Fx Stat
+Display trade/transaction history [fetched from live server via API]
+Display a link to log into FX stat portal (link description should remind user to copy trade from experienced traders )
+Access to practicing area [Accessible by demo account login only]
+If an interface to the Metatrader 4 API for DEMO accounts exist, replicate all features of members’ area for this “practicing area” page. ****
+[API CONNECTION] build Interface between users and Metatrader 4 API
+LINK: http://www.metatrader4.com/en/brokers/api
+Demo account form on the website connects/posts to Metatrader 4 API to sign them up for metatrader 4 demo account SECURELY
+Live account form on the website connects/posts to Metatrader 4 API to sign them up for metatrader 4 demo account SECURELY
+When user sign into live account(members’ area),
+website connect to metatrader 4 API and allows user to;
+Withdraw funds
+Transfer funds
+Deposit funds
+open trading account for a live account holder.
+One account
+Ecn account
+FX Stat account
+View all accounts owned by user.
+On click of each displayed account,  website retrieves trade history / transaction for user
+Database connection/Integration
+Backend of website will be integrated into salesforce to generate leads sourced from all activities.
+Backend database(mysql or postgre etc...)
+CRM - Salesforce professional edition [*clarification of integration/API and other feature limitations*]
+Data analytics server - Jasper reports (open source server)
+Documentation
+Complete website design documentation [not in technical language]
+Flow charts
+XML
+Word document or other equivalent forms
+Complete website development documentation [In both technical and natural language]
+Flow charts
+XML
+Word document
+Database documentation
+Schema
+ER / UML
+Flowcharts
+Clearly understandable data dictionary
+Describe meaning of
+How each of the tables function
+What each of the tables means
+Explanation of
+Relationships ( foreign keys from one table to another and vice versa)
+Additional constraints and / or triggers
+Major views and procs that touch the table
+Detailed documentation on website connection to MT4 API (in natural language)
+List all methods used in connecting to the API in details
+How a Demo account form on the website connects to Metatrader 4 API to sign them up for metatrader 4 demo account SECURELY
+a live account form on the website connects to Metatrader 4 API to sign them up for metatrader 4 demo account SECURELY
+the website connect to metatrader 4 API and allows user to;
+Withdraw funds
+Transfer funds
+Deposit funds
+the website connect to metatrader 4 API and allow user to open trading account for a live account holder.
+One account
+Ecn account
+FX Stat account
+On clicking the displayed accounts of user
+How the website retrieves trade history / transaction
+Source Code
